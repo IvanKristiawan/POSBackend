@@ -1,0 +1,255 @@
+### Supplier
+GET http://localhost:5000/suppliers
+
+### 
+GET http://localhost:5000/suppliersNextLength
+
+### 
+GET http://localhost:5000/supplierForTable
+
+### 
+GET http://localhost:5000/supplierMainInfo
+
+###
+GET http://localhost:5000/suppliers/62fc62cf0428a8c01cd1a674
+
+###
+POST http://localhost:5000/suppliers
+Content-Type: application/json
+
+{
+    "namaSupplier": "HMI A BENG",
+    "alamatSupplier": "",
+    "kota": "",
+    "telp": "",
+    "npwp": ""
+}
+
+###
+PATCH http://localhost:5000/suppliers/62fc62cf0428a8c01cd1a674
+Content-Type: application/json
+
+{
+    "namaSupplier": "HMI A BENG",
+    "alamatSupplier": "",
+    "kota": "",
+    "telp": "",
+    "npwp": ""
+}
+
+###
+DELETE http://localhost:5000/suppliers/62fc62cf0428a8c01cd1a674
+
+### Group Stok
+GET http://localhost:5000/groupStoks
+
+###
+GET http://localhost:5000/groupStoks/62fc9d3a53206a665a16dbd9
+
+###
+POST http://localhost:5000/groupStoks
+Content-Type: application/json
+
+{
+    "kodeGroup": "BDK",
+    "namaGroup": "BEDAK (POWDER)"
+}
+
+###
+PATCH http://localhost:5000/groupStoks/62fc9d6753206a665a16dbdf
+Content-Type: application/json
+
+{
+    "kodeGroup": "BDK",
+    "namaGroup": "BEDAK (POWDER)"
+}
+
+###
+DELETE http://localhost:5000/groupStoks/62fc9d6753206a665a16dbdf
+
+### Stok
+GET http://localhost:5000/stoks
+
+### 
+GET http://localhost:5000/stokForTable
+
+### 
+GET http://localhost:5000/stokMainInfo
+
+### 
+GET http://localhost:5000/stokForTransaction
+
+###
+GET http://localhost:5000/stoks/62c7d89224972a7002d8bdad
+
+### 
+GET http://localhost:5000/stoks/kodeStokNextLength/ACK
+
+###
+POST http://localhost:5000/stoks
+Content-Type: application/json
+
+{
+    "gambarId": ["vbcdsmj3ddm7z3rwbifk", "oaoa22xcxmyicexdulel"],
+    "gambar": ["https://res.cloudinary.com/dbtag5lau/image/upload/v1657178663/vbcdsmj3ddm7z3rwbifk.jpg", "https://res.cloudinary.com/dbtag5lau/image/upload/v1655273207/oaoa22xcxmyicexdulel.jpg"],
+    "kodeGroup": "ACK",
+    "kodeBarcode": "8992765101011",
+    "namaStok": "GILLETTE GOAL KLIK 1 S MERAH",
+    "merk": "",
+    "satuanKecil": "PCS",
+    "satuanBesar": "HGR",
+    "konversi": 1,
+    "hargaJualKecil": 8000,
+    "hargaJualBesar": 48000
+}
+
+###
+PATCH http://localhost:5000/stoks/62dbe71431ebc6933b728743
+Content-Type: application/json
+
+{
+    "gambarId": ["vbcdsmj3ddm7z3rwbifk", "oaoa22xcxmyicexdulel"],
+    "gambar": ["https://res.cloudinary.com/dbtag5lau/image/upload/v1657178663/vbcdsmj3ddm7z3rwbifk.jpg", "https://res.cloudinary.com/dbtag5lau/image/upload/v1655273207/oaoa22xcxmyicexdulel.jpg"],
+    "kodeGroup": "ACK",
+    "namaStok": "PISAU LIPAT TAZAM KTK",
+    "merk": "",
+    "satuanKecil": "KTK",
+    "satuanBesar": "KTK",
+    "konversi": 1,
+    "hargaJualKecil": 8000,
+    "hargaJualBesar": 8000
+}
+
+###
+DELETE http://localhost:5000/stoks/62fcb6f95fcc2dedd6926836
+
+### Pembelian Stok
+GET http://localhost:5000/pembelianStoks
+
+###
+GET http://localhost:5000/pembelianStoks/62fcb9f2a93be6c184342bba
+
+###
+POST http://localhost:5000/pembelianStoks
+Content-Type: application/json
+
+{
+    "nomorNota": "00002",
+    "tanggal": "17-08-2022",
+    "jenis": "KREDIT",
+    "kodeSupplier": "00001"
+}
+
+###
+PATCH http://localhost:5000/pembelianStoks/62fcba18a93be6c184342bbe
+Content-Type: application/json
+
+{
+    "nomorNota": "00002",
+    "tanggal": "17-08-2022",
+    "jenis": "KREDIT",
+    "kodeSupplier": "00001"
+}
+
+###
+DELETE http://localhost:5000/pembelianStoks/62fcb9f2a93be6c184342bba
+
+### A Pembelian Stok 
+GET http://localhost:5000/aPembelianStoks
+
+###
+GET http://localhost:5000/aPembelianStoks/62fcbdf3c9de6769695601c2
+
+###
+POST http://localhost:5000/aPembelianStoks
+Content-Type: application/json
+
+{
+    "nomorNota": "00002",
+    "kodeStok": "ACK-00002",
+    "qty": 1,
+    "hargaSatuan": 1000,
+    "potongan": 10,
+    "subtotal": 900
+}
+
+###
+PATCH http://localhost:5000/aPembelianStoks/62fcbe50c9de6769695601ce
+Content-Type: application/json
+
+{
+    "nomorNota": "00002",
+    "kodeStok": "ACK-00002",
+    "qty": 1,
+    "hargaSatuan": 1000,
+    "potongan": 10,
+    "subtotal": 900
+}
+
+###
+DELETE http://localhost:5000/aPembelianStoks/62fcbe50c9de6769695601ce
+
+### Penjualan Stok 
+GET http://localhost:5000/penjualanStoks
+
+### 
+GET http://localhost:5000/penjualanStoksCount
+
+###
+GET http://localhost:5000/penjualanStoks/62fcc52a1b449de6ae362999
+
+###
+POST http://localhost:5000/penjualanStoks
+Content-Type: application/json
+
+{
+    "nomorNota": "00002",
+    "tanggal": "17-08-2022"
+}
+
+###
+PATCH http://localhost:5000/penjualanStoks/62fcc52a1b449de6ae362999
+Content-Type: application/json
+
+{
+    "total": 10000,
+    "nonTunai": 5000,
+    "tunai": 6000,
+    "kembali": 1000
+}
+
+###
+DELETE http://localhost:5000/penjualanStoks/629ac2b398df9f51e8ddb93b
+
+### A Penjualan Stok 
+GET http://localhost:5000/aPenjualanStoks
+
+###
+GET http://localhost:5000/aPenjualanStoks/62fcd1d1725480396a3abf89
+
+###
+POST http://localhost:5000/aPenjualanStoks
+Content-Type: application/json
+
+{
+    "nomorNota": "00001",
+    "kodeStok": "ACK-00002",
+    "qty": 1,
+    "hargaSatuan": 5000,
+    "total": 5000
+}
+
+###
+PATCH http://localhost:5000/aPenjualanStoks/62fcd1ed725480396a3abf8c
+Content-Type: application/json
+
+{
+    "nomorNota": "00001",
+    "kodeStok": "ACK-00002",
+    "qty": 1,
+    "hargaSatuan": 5000,
+    "total": 5000
+}
+
+###
+DELETE http://localhost:5000/aPenjualanStoks/62fcd1ed725480396a3abf8c

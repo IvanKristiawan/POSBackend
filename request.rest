@@ -71,6 +71,9 @@ DELETE http://localhost:5000/groupStoks/62fc9d6753206a665a16dbdf
 GET http://localhost:5000/stoks
 
 ### 
+GET http://localhost:5000/stokByKodeStok/ACK-00001
+
+### 
 GET http://localhost:5000/stokForTable
 
 ### 
@@ -90,8 +93,6 @@ POST http://localhost:5000/stoks
 Content-Type: application/json
 
 {
-    "gambarId": ["vbcdsmj3ddm7z3rwbifk", "oaoa22xcxmyicexdulel"],
-    "gambar": ["https://res.cloudinary.com/dbtag5lau/image/upload/v1657178663/vbcdsmj3ddm7z3rwbifk.jpg", "https://res.cloudinary.com/dbtag5lau/image/upload/v1655273207/oaoa22xcxmyicexdulel.jpg"],
     "kodeGroup": "ACK",
     "kodeBarcode": "8992765101011",
     "namaStok": "GILLETTE GOAL KLIK 1 S MERAH",
@@ -104,13 +105,14 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:5000/stoks/62dbe71431ebc6933b728743
+PATCH http://localhost:5000/stoks/62fd8cc148116872d0d881da
 Content-Type: application/json
 
 {
     "gambarId": ["vbcdsmj3ddm7z3rwbifk", "oaoa22xcxmyicexdulel"],
     "gambar": ["https://res.cloudinary.com/dbtag5lau/image/upload/v1657178663/vbcdsmj3ddm7z3rwbifk.jpg", "https://res.cloudinary.com/dbtag5lau/image/upload/v1655273207/oaoa22xcxmyicexdulel.jpg"],
     "kodeGroup": "ACK",
+    "kodeBarcode": "8991102888202",
     "namaStok": "PISAU LIPAT TAZAM KTK",
     "merk": "",
     "satuanKecil": "KTK",
@@ -121,7 +123,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/stoks/62fcb6f95fcc2dedd6926836
+DELETE http://localhost:5000/stoks/62fcb7265fcc2dedd692683c
 
 ### Pembelian Stok
 GET http://localhost:5000/pembelianStoks
@@ -152,7 +154,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/pembelianStoks/62fcb9f2a93be6c184342bba
+DELETE http://localhost:5000/pembelianStoks/62fcbc12a93be6c184342bcc
 
 ### A Pembelian Stok 
 GET http://localhost:5000/aPembelianStoks
@@ -165,12 +167,12 @@ POST http://localhost:5000/aPembelianStoks
 Content-Type: application/json
 
 {
-    "nomorNota": "00002",
+    "nomorNota": "00001",
     "kodeStok": "ACK-00002",
     "qty": 1,
-    "hargaSatuan": 1000,
+    "hargaSatuan": 11000,
     "potongan": 10,
-    "subtotal": 900
+    "subtotal": 10000
 }
 
 ###
@@ -187,7 +189,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/aPembelianStoks/62fcbe50c9de6769695601ce
+DELETE http://localhost:5000/aPembelianStoks/62fda8abd3aab00fb3ff84bd
 
 ### Penjualan Stok 
 GET http://localhost:5000/penjualanStoks
@@ -219,7 +221,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/penjualanStoks/629ac2b398df9f51e8ddb93b
+DELETE http://localhost:5000/penjualanStoks/62fde1aee934fecc6bb31010
 
 ### A Penjualan Stok 
 GET http://localhost:5000/aPenjualanStoks

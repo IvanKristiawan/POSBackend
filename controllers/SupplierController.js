@@ -41,7 +41,7 @@ export const getSupplierForTable = async (req, res) => {
   try {
     const suppliers = await Supplier.find(
       {},
-      { _id: 1, kode: 1, namaSupplier: 1, alamatSupplier: 1, kota: 1 }
+      { _id: 1, kodeSupplier: 1, namaSupplier: 1, alamatSupplier: 1, kota: 1 }
     );
     res.json(suppliers);
   } catch (error) {
@@ -54,7 +54,7 @@ export const getSupplierMainInfo = async (req, res) => {
   try {
     const suppliers = await Supplier.find(
       {},
-      { _id: 1, kode: 1, namaSupplier: 1 }
+      { _id: 1, kodeSupplier: 1, namaSupplier: 1 }
     );
     res.json(suppliers);
   } catch (error) {

@@ -12,6 +12,28 @@ cloudinary.config({
 export const getStoks = async (req, res) => {
   try {
     const stoks = await Stok.find();
+
+    function compare( a, b ) {
+      if ( a.kodeStok < b.kodeStok ){
+        return -1;
+      }
+      if ( a.kodeStok > b.kodeStok ){
+        return 1;
+      }
+      return 0;
+    }
+    let sorted = stoks.sort( compare );
+
+    res.json(sorted);
+  } catch (error) {
+    // Error 500 = Kesalahan di server
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getStokByKodeStok = async (req, res) => {
+  try {
+    const stoks = await Stok.findOne({kodeStok: req.params.kodeStok});
     res.json(stoks);
   } catch (error) {
     // Error 500 = Kesalahan di server
@@ -36,7 +58,19 @@ export const getStokForTable = async (req, res) => {
         kota: 1,
       }
     );
-    res.json(stoks);
+
+    function compare( a, b ) {
+      if ( a.kodeStok < b.kodeStok ){
+        return -1;
+      }
+      if ( a.kodeStok > b.kodeStok ){
+        return 1;
+      }
+      return 0;
+    }
+    let sorted = stoks.sort( compare );
+
+    res.json(sorted);
   } catch (error) {
     // Error 500 = Kesalahan di server
     res.status(500).json({ message: error.message });
@@ -45,7 +79,7 @@ export const getStokForTable = async (req, res) => {
 
 export const getStokMainInfo = async (req, res) => {
   try {
-    const stoks = await Stok.find({}, { _id: 1, kodeStok: 1, namaStok: 1 });
+    const stoks = await Stok.find({}, { _id: 1, kodeStok: 1, namaStok: 1, qty: 1 });
     res.json(stoks);
   } catch (error) {
     // Error 500 = Kesalahan di server

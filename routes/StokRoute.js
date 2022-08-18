@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getStoks,
+  getStokByKodeStok,
   getStokForTable,
   getStokMainInfo,
   getStokForTransaction,
@@ -14,6 +15,7 @@ import {
 const router = express.Router();
 
 router.get("/stoks", getStoks);
+router.get("/stokByKodeStok/:kodeStok", getStokByKodeStok);
 router.get("/stokForTable", getStokForTable);
 router.get("/stokMainInfo", getStokMainInfo); 
 router.get("/stokForTransaction", getStokForTransaction); 

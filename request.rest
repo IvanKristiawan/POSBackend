@@ -227,7 +227,16 @@ DELETE http://localhost:5000/penjualanStoks/62fde1aee934fecc6bb31010
 GET http://localhost:5000/aPenjualanStoks
 
 ###
-GET http://localhost:5000/aPenjualanStoks/62fcd1d1725480396a3abf89
+GET http://localhost:5000/aPenjualanStoks/62fef8e84ee0c37d9c5bc5f4
+
+###
+POST http://localhost:5000/aPenjualanStokByKodeStok
+Content-Type: application/json
+
+{
+    "nomorNota": "00001",
+    "kodeStok": "ACK-00001"
+}
 
 ###
 POST http://localhost:5000/aPenjualanStoks
@@ -242,15 +251,12 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:5000/aPenjualanStoks/62fcd1ed725480396a3abf8c
+PATCH http://localhost:5000/aPenjualanStoks/62fee6d556b3ec26289ed38b
 Content-Type: application/json
 
 {
-    "nomorNota": "00001",
-    "kodeStok": "ACK-00002",
-    "qty": 1,
-    "hargaSatuan": 5000,
-    "total": 5000
+    "qty": 2,
+    "total": 20000
 }
 
 ###

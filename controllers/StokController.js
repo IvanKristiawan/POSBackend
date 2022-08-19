@@ -79,7 +79,7 @@ export const getStokForTable = async (req, res) => {
 
 export const getStokMainInfo = async (req, res) => {
   try {
-    const stoks = await Stok.find({}, { _id: 1, kodeStok: 1, namaStok: 1, qty: 1 });
+    const stoks = await Stok.find({}, { _id: 1, kodeStok: 1, kodeBarcode: 1, namaStok: 1, qty: 1 });
     res.json(stoks);
   } catch (error) {
     // Error 500 = Kesalahan di server

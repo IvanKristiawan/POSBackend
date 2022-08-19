@@ -20,6 +20,16 @@ export const getAPenjualanStokById = async (req, res) => {
   }
 };
 
+export const getAPenjualanStokByKodeStok = async (req, res) => {
+  try {
+    const aPenjualanStok = await APenjualanStok.findOne({nomorNota: req.body.nomorNota, kodeStok: req.body.kodeStok});
+    res.json(aPenjualanStok);
+  } catch (error) {
+    // Error 404 = Not Found
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export const saveAPenjualanStok = async (req, res) => {
   const aPenjualanStok = new APenjualanStok(req.body);
   try {

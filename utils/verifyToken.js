@@ -39,13 +39,13 @@ export const verifyUserSPV = (req, res, next) => {
   });
 
   if (req.params.length === 0) {
-    if (req.params.id === req.user.id && req.body.tipeUser === "SPV") {
+    if (req.body.tipeAdmin === "SPV") {
       next();
     } else {
       return next(createError(403, "You are not authorized!"));
     }
   } else {
-    if (req.body.id === req.user.id && req.body.tipeUser === "SPV") {
+    if (req.body.tipeAdmin === "SPV") {
       next();
     } else {
       return next(createError(403, "You are not authorized!"));

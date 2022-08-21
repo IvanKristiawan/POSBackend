@@ -270,10 +270,9 @@ POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-    "username":"BES",
-    "password": "BES",
-    "tipeUser": "SPV",
-    "kodeNota": "00"
+    "username":"KSR",
+    "password": "KSR",
+    "kodeNota": "02"
 }
 
 ### Login
@@ -290,39 +289,41 @@ POST http://localhost:5000/users/630195ec337162192ee652f0
 Content-Type: application/json
 
 {
+    "tipeAdmin": "SPV",
     "id": "630195ec337162192ee652f0",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE5NWVjMzM3MTYyMTkyZWU2NTJmMCIsImlhdCI6MTY2MTA0ODc0MCwiZXhwIjoxNjYyMzQ0NzQwfQ.SNVO1SRqRKkaIU4DsuRVJScy_3mwxUk_bKb1iR_BHks"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE5NWVjMzM3MTYyMTkyZWU2NTJmMCIsImlhdCI6MTY2MTA0ODg0NSwiZXhwIjoxNjYyMzQ0ODQ1fQ.7crQnfW174eGzj4f5iw5zMtSc1PBT-yrsR5Vt8UjGbs"
 }
 
 ### 
-GET http://localhost:5000/users/
+POST http://localhost:5000/users/
 Content-Type: application/json
 
 {
-    "tipeUser": "SPV",
+    "tipeAdmin": "SPV",
     "id": "630195ec337162192ee652f0",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE5NWVjMzM3MTYyMTkyZWU2NTJmMCIsImlhdCI6MTY2MTA0ODg0NSwiZXhwIjoxNjYyMzQ0ODQ1fQ.7crQnfW174eGzj4f5iw5zMtSc1PBT-yrsR5Vt8UjGbs"
 }
 
 ###
-PUT http://localhost:5000/users/63018fdeff01fea7c7eff5fe
+PUT http://localhost:5000/users/6301af7b8be53196cd6d85fb
 Content-Type: application/json
 
 {
-    "username":"BES",
-    "password": "BES",
-    "tipeUser": "SPV",
-    "kodeNota": "00",
-    "id": "63018fdeff01fea7c7eff5fe",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE4ZmRlZmYwMWZlYTdjN2VmZjVmZSIsImlhdCI6MTY2MTA0Nzk3MCwiZXhwIjoxNjYyMzQzOTcwfQ.J4ImW2y-zV8MRDYIjLub6OnZw2lVEa4Zk5TeJ5ukCPY"
+    "username":"KSR",
+    "password": "KSR",
+    "tipeUser": "KSR",
+    "kodeNota": "02",
+    "tipeAdmin": "SPV",
+    "id": "630195ec337162192ee652f0",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE5NWVjMzM3MTYyMTkyZWU2NTJmMCIsImlhdCI6MTY2MTA1NDk4MSwiZXhwIjoxNjYyMzUwOTgxfQ.IrEN-_HSWLM-Xrycg5fvlqSe4YbqM9Hnc847tgTJCrk"
 }
 
 ###
-DELETE http://localhost:5000/users/63018fdeff01fea7c7eff5fe
+POST http://localhost:5000/users/deleteUser/63018fdeff01fea7c7eff5fe
 Content-Type: application/json
 
 {
-    "tipeUser": "SPV",
+    "tipeAdmin": "SPV",
     "id": "63018fdeff01fea7c7eff5fe",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE4ZmRlZmYwMWZlYTdjN2VmZjVmZSIsImlhdCI6MTY2MTA0Nzk3MCwiZXhwIjoxNjYyMzQzOTcwfQ.J4ImW2y-zV8MRDYIjLub6OnZw2lVEa4Zk5TeJ5ukCPY"
 }

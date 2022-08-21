@@ -11,10 +11,10 @@ const router = express.Router();
 // UPDATE
 router.put("/:id", verifyUserSPV, updateUser);
 // DELETE
-router.delete("/:id", verifyUserSPV, deleteUser);
+router.post("/deleteUser/:id", verifyUserSPV, deleteUser);
 // GET
-router.post("/:id", verifyUser, getUser);
+router.post("/:id", verifyUserSPV, getUser);
 // GET ALL
-router.get("/", verifyUserSPV, getUsers);
+router.post("/", verifyUserSPV, getUsers);
 
 export default router;

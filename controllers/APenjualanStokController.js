@@ -22,7 +22,22 @@ export const getAPenjualanStokById = async (req, res) => {
 
 export const getAPenjualanStokByKodeStok = async (req, res) => {
   try {
-    const aPenjualanStok = await APenjualanStok.findOne({nomorNota: req.body.nomorNota, kodeStok: req.body.kodeStok});
+    const aPenjualanStok = await APenjualanStok.findOne({
+      nomorNota: req.body.nomorNota,
+      kodeStok: req.body.kodeStok,
+    });
+    res.json(aPenjualanStok);
+  } catch (error) {
+    // Error 404 = Not Found
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getAPenjualanStokByNomorNota = async (req, res) => {
+  try {
+    const aPenjualanStok = await APenjualanStok.find({
+      nomorNota: req.params.nomorNota,
+    });
     res.json(aPenjualanStok);
   } catch (error) {
     // Error 404 = Not Found

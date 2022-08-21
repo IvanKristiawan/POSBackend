@@ -230,6 +230,9 @@ GET http://localhost:5000/aPenjualanStoks
 GET http://localhost:5000/aPenjualanStoks/62fef8e84ee0c37d9c5bc5f4
 
 ###
+GET http://localhost:5000/aPenjualanStokByNomorNota/00001
+
+###
 POST http://localhost:5000/aPenjualanStokByKodeStok
 Content-Type: application/json
 

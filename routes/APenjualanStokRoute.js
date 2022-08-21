@@ -3,6 +3,7 @@ import {
   getAPenjualanStok,
   getAPenjualanStokById,
   getAPenjualanStokByKodeStok,
+  getAPenjualanStokByNomorNota,
   saveAPenjualanStok,
   updateAPenjualanStok,
   deleteAPenjualanStok,
@@ -13,6 +14,7 @@ const router = express.Router();
 router.get("/aPenjualanStoks", getAPenjualanStok);
 router.get("/aPenjualanStoks/:id", getAPenjualanStokById);
 router.post("/aPenjualanStokByKodeStok", getAPenjualanStokByKodeStok);
+router.get("/aPenjualanStokByNomorNota/:nomorNota", getAPenjualanStokByNomorNota);
 router.post("/aPenjualanStoks", saveAPenjualanStok);
 router.patch("/aPenjualanStoks/:id", updateAPenjualanStok);
 router.delete("/aPenjualanStoks/:id", deleteAPenjualanStok);

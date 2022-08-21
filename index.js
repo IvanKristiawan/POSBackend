@@ -12,6 +12,8 @@ import PembelianStokRoute from "./routes/PembelianStokRoute.js";
 import APembelianStokRoute from "./routes/APembelianStokRoute.js";
 import PenjualanStokRoute from "./routes/PenjualanStokRoute.js";
 import APenjualanStokRoute from "./routes/APenjualanStokRoute.js";
+import UserRoute from "./routes/UserRoute.js";
+import AuthRoute from "./routes/AuthRoute.js";
 
 const app = express();
 mongoose
@@ -29,6 +31,8 @@ app.use(PembelianStokRoute);
 app.use(APembelianStokRoute);
 app.use(PenjualanStokRoute);
 app.use(APenjualanStokRoute);
+app.use("/users", UserRoute);
+app.use("/auth", AuthRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

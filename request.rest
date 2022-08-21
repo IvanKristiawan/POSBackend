@@ -264,3 +264,65 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:5000/aPenjualanStoks/62fcd1ed725480396a3abf8c
+
+### Register
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "username":"BES",
+    "password": "BES",
+    "tipeUser": "SPV",
+    "kodeNota": "00"
+}
+
+### Login
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "username":"BES",
+    "password": "BES"
+}
+
+### User
+POST http://localhost:5000/users/630195ec337162192ee652f0
+Content-Type: application/json
+
+{
+    "id": "630195ec337162192ee652f0",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE5NWVjMzM3MTYyMTkyZWU2NTJmMCIsImlhdCI6MTY2MTA0ODc0MCwiZXhwIjoxNjYyMzQ0NzQwfQ.SNVO1SRqRKkaIU4DsuRVJScy_3mwxUk_bKb1iR_BHks"
+}
+
+### 
+GET http://localhost:5000/users/
+Content-Type: application/json
+
+{
+    "tipeUser": "SPV",
+    "id": "630195ec337162192ee652f0",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE5NWVjMzM3MTYyMTkyZWU2NTJmMCIsImlhdCI6MTY2MTA0ODg0NSwiZXhwIjoxNjYyMzQ0ODQ1fQ.7crQnfW174eGzj4f5iw5zMtSc1PBT-yrsR5Vt8UjGbs"
+}
+
+###
+PUT http://localhost:5000/users/63018fdeff01fea7c7eff5fe
+Content-Type: application/json
+
+{
+    "username":"BES",
+    "password": "BES",
+    "tipeUser": "SPV",
+    "kodeNota": "00",
+    "id": "63018fdeff01fea7c7eff5fe",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE4ZmRlZmYwMWZlYTdjN2VmZjVmZSIsImlhdCI6MTY2MTA0Nzk3MCwiZXhwIjoxNjYyMzQzOTcwfQ.J4ImW2y-zV8MRDYIjLub6OnZw2lVEa4Zk5TeJ5ukCPY"
+}
+
+###
+DELETE http://localhost:5000/users/63018fdeff01fea7c7eff5fe
+Content-Type: application/json
+
+{
+    "tipeUser": "SPV",
+    "id": "63018fdeff01fea7c7eff5fe",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDE4ZmRlZmYwMWZlYTdjN2VmZjVmZSIsImlhdCI6MTY2MTA0Nzk3MCwiZXhwIjoxNjYyMzQzOTcwfQ.J4ImW2y-zV8MRDYIjLub6OnZw2lVEa4Zk5TeJ5ukCPY"
+}

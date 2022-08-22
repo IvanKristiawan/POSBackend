@@ -9,11 +9,11 @@ import { verifyUser, verifyUserSPV } from "../utils/verifyToken.js";
 const router = express.Router();
 
 // UPDATE
-router.put("/:id", verifyUserSPV, updateUser);
+router.put("/:id", verifyUser, updateUser);
 // DELETE
 router.post("/deleteUser/:id", verifyUserSPV, deleteUser);
 // GET
-router.post("/:id", verifyUserSPV, getUser);
+router.post("/:id", verifyUser, getUser);
 // GET ALL
 router.post("/", verifyUserSPV, getUsers);
 

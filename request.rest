@@ -194,6 +194,15 @@ DELETE http://localhost:5000/aPembelianStoks/62fda8abd3aab00fb3ff84bd
 ### Penjualan Stok 
 GET http://localhost:5000/penjualanStoks
 
+###  
+POST http://localhost:5000/penjualanStokForKlerekan
+Content-Type: application/json
+
+{
+    "tanggal": "24-08-2022",
+    "username": "BES"
+}
+
 ### 
 GET http://localhost:5000/penjualanStoksCount
 

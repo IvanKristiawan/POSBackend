@@ -10,6 +10,19 @@ export const getPenjualanStoks = async (req, res) => {
   }
 };
 
+export const getPenjualanStokForKlerekan = async (req, res) => {
+  try {
+    const penjualanStoks = await PenjualanStok.find({
+      tanggal: req.body.tanggal,
+      username: req.body.username,
+    });
+    res.json(penjualanStoks);
+  } catch (error) {
+    // Error 500 = Kesalahan di server
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const getPenjualanStoksCount = async (req, res) => {
   try {
     const penjualanStoks = await PenjualanStok.find();

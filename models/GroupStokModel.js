@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const GroupStokSchema = new mongoose.Schema({
-    kodeGroup: {type: String},
-    namaGroup: {type: String},
-})
+  kodeGroup: { type: String },
+  namaGroup: { type: String },
+});
 
-export default mongoose.model('GroupStok', GroupStokSchema);
+module.exports = mongoose.model("GroupStok", GroupStokSchema);

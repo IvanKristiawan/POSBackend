@@ -1,7 +1,7 @@
-import jwt from "jsonwebtoken";
-import { createError } from "../utils/error.js";
+const jwt = require("jsonwebtoken");
+const { createError } = require("../utils/error.js");
 
-export const verifyUser = (req, res, next) => {
+const verifyUser = (req, res, next) => {
   const token = req.body.token;
   if (!token) {
     return next(createError(401, "You are not authenticated!"));
@@ -27,7 +27,7 @@ export const verifyUser = (req, res, next) => {
   }
 };
 
-export const verifyUserSPV = (req, res, next) => {
+const verifyUserSPV = (req, res, next) => {
   const token = req.body.token;
   if (!token) {
     return next(createError(401, "You are not authenticated!"));
@@ -53,7 +53,7 @@ export const verifyUserSPV = (req, res, next) => {
   }
 };
 
-export const verifyUserKSR = (req, res, next) => {
+const verifyUserKSR = (req, res, next) => {
   const token = req.body.token;
   if (!token) {
     return next(createError(401, "You are not authenticated!"));
@@ -77,4 +77,10 @@ export const verifyUserKSR = (req, res, next) => {
       return next(createError(403, "You are not authorized!"));
     }
   }
+};
+
+module.exports = {
+  verifyUser,
+  verifyUserSPV,
+  verifyUserKSR,
 };

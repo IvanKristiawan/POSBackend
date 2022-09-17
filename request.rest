@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/suppliers/62fc62cf0428a8c01cd1a674
+DELETE http://localhost:5000/suppliers/6325315e33260bf3d00df7a4
 
 ### Group Stok
 GET http://localhost:5000/groupStoks

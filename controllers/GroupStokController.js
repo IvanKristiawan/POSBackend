@@ -1,6 +1,6 @@
-import GroupStok from "../models/GroupStokModel.js";
+const GroupStok = require("../models/GroupStokModel.js");
 
-export const getGroupStoks = async (req, res) => {
+const getGroupStoks = async (req, res) => {
   try {
     const groupStoks = await GroupStok.find();
     res.json(groupStoks);
@@ -10,7 +10,7 @@ export const getGroupStoks = async (req, res) => {
   }
 };
 
-export const getGroupStokById = async (req, res) => {
+const getGroupStokById = async (req, res) => {
   try {
     const groupStok = await GroupStok.findById(req.params.id);
     res.json(groupStok);
@@ -20,7 +20,7 @@ export const getGroupStokById = async (req, res) => {
   }
 };
 
-export const saveGroupStok = async (req, res) => {
+const saveGroupStok = async (req, res) => {
   const groupStok = new GroupStok(req.body);
   try {
     const insertedGroupStok = await groupStok.save();
@@ -32,7 +32,7 @@ export const saveGroupStok = async (req, res) => {
   }
 };
 
-export const updateGroupStok = async (req, res) => {
+const updateGroupStok = async (req, res) => {
   try {
     const updatedGroupStok = await GroupStok.findByIdAndUpdate(
       req.params.id,
@@ -49,7 +49,7 @@ export const updateGroupStok = async (req, res) => {
   }
 };
 
-export const deleteGroupStok = async (req, res) => {
+const deleteGroupStok = async (req, res) => {
   try {
     const deletedGroupStok = await GroupStok.deleteOne({ _id: req.params.id });
     // Status 200 = Successful
@@ -58,4 +58,12 @@ export const deleteGroupStok = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getGroupStoks,
+  getGroupStokById,
+  saveGroupStok,
+  updateGroupStok,
+  deleteGroupStok,
 };

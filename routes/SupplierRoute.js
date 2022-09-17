@@ -1,14 +1,13 @@
-import express from "express";
-import {
-  getSuppliers,
-  getSuppliersNextLength,
-  getSupplierForTable,
-  getSupplierMainInfo,
-  getSupplierById,
-  saveSupplier,
-  updateSupplier,
-  deleteSupplier,
-} from "../controllers/SupplierController.js";
+const express = require("express");
+const content = require("../controllers/SupplierController.js");
+const getSuppliers = content.getSuppliers;
+const getSuppliersNextLength = content.getSuppliersNextLength;
+const getSupplierForTable = content.getSupplierForTable;
+const getSupplierMainInfo = content.getSupplierMainInfo;
+const getSupplierById = content.getSupplierById;
+const saveSupplier = content.saveSupplier;
+const updateSupplier = content.updateSupplier;
+const deleteSupplier = content.deleteSupplier;
 
 const router = express.Router();
 
@@ -21,4 +20,4 @@ router.post("/suppliers", saveSupplier);
 router.patch("/suppliers/:id", updateSupplier);
 router.delete("/suppliers/:id", deleteSupplier);
 
-export default router;
+module.exports = router;

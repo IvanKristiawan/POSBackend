@@ -1,7 +1,7 @@
-import cloudinary from "cloudinary";
-import dotenv from "dotenv";
+const cloudinary = require("cloudinary");
+const dotenv = require("dotenv");
 dotenv.config();
-import Stok from "../models/StokModel.js";
+const Stok = require("../models/StokModel.js");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -9,20 +9,20 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET,
 });
 
-export const getStoks = async (req, res) => {
+const getStoks = async (req, res) => {
   try {
     const stoks = await Stok.find();
 
-    function compare( a, b ) {
-      if ( a.kodeStok < b.kodeStok ){
+    function compare(a, b) {
+      if (a.kodeStok < b.kodeStok) {
         return -1;
       }
-      if ( a.kodeStok > b.kodeStok ){
+      if (a.kodeStok > b.kodeStok) {
         return 1;
       }
       return 0;
     }
-    let sorted = stoks.sort( compare );
+    let sorted = stoks.sort(compare);
 
     res.json(sorted);
   } catch (error) {
@@ -31,9 +31,9 @@ export const getStoks = async (req, res) => {
   }
 };
 
-export const getStokByKodeStok = async (req, res) => {
+const getStokByKodeStok = async (req, res) => {
   try {
-    const stoks = await Stok.findOne({kodeStok: req.params.kodeStok});
+    const stoks = await Stok.findOne({ kodeStok: req.params.kodeStok });
     res.json(stoks);
   } catch (error) {
     // Error 500 = Kesalahan di server
@@ -41,7 +41,7 @@ export const getStokByKodeStok = async (req, res) => {
   }
 };
 
-export const getStokForTable = async (req, res) => {
+const getStokForTable = async (req, res) => {
   try {
     const stoks = await Stok.find(
       {},
@@ -59,16 +59,16 @@ export const getStokForTable = async (req, res) => {
       }
     );
 
-    function compare( a, b ) {
-      if ( a.kodeStok < b.kodeStok ){
+    function compare(a, b) {
+      if (a.kodeStok < b.kodeStok) {
         return -1;
       }
-      if ( a.kodeStok > b.kodeStok ){
+      if (a.kodeStok > b.kodeStok) {
         return 1;
       }
       return 0;
     }
-    let sorted = stoks.sort( compare );
+    let sorted = stoks.sort(compare);
 
     res.json(sorted);
   } catch (error) {
@@ -77,17 +77,7 @@ export const getStokForTable = async (req, res) => {
   }
 };
 
-export const getStokMainInfo = async (req, res) => {
-  try {
-    const stoks = await Stok.find({}, { _id: 1, kodeStok: 1, kodeBarcode: 1, namaStok: 1, qty: 1 });
-    res.json(stoks);
-  } catch (error) {
-    // Error 500 = Kesalahan di server
-    res.status(500).json({ message: error.message });
-  }
-};
-
-export const getStokForTransaction = async (req, res) => {
+const getStokMainInfo = async (req, res) => {
   try {
     const stoks = await Stok.find(
       {},
@@ -100,7 +90,20 @@ export const getStokForTransaction = async (req, res) => {
   }
 };
 
-export const getStokById = async (req, res) => {
+const getStokForTransaction = async (req, res) => {
+  try {
+    const stoks = await Stok.find(
+      {},
+      { _id: 1, kodeStok: 1, kodeBarcode: 1, namaStok: 1, qty: 1 }
+    );
+    res.json(stoks);
+  } catch (error) {
+    // Error 500 = Kesalahan di server
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getStokById = async (req, res) => {
   try {
     const stok = await Stok.findById(req.params.id);
     res.json(stok);
@@ -110,7 +113,7 @@ export const getStokById = async (req, res) => {
   }
 };
 
-export const getKodeStokNextLength = async (req, res) => {
+const getKodeStokNextLength = async (req, res) => {
   try {
     const stoks = await Stok.find({ kodeGroup: req.params.kodeGroup });
     const stoksLength = stoks.length;
@@ -137,12 +140,12 @@ export const getKodeStokNextLength = async (req, res) => {
   }
 };
 
-export const saveStok = async (req, res) => {
+const saveStok = async (req, res) => {
   const stoks = await Stok.find({ kodeGroup: req.body.kodeGroup });
   const stoksLength = stoks.length;
   let kodeStokCount;
   let increment;
-  let stok
+  let stok;
 
   if (stoksLength < 1) {
     kodeStokCount = (1).toLocaleString("en-US", {
@@ -157,7 +160,7 @@ export const saveStok = async (req, res) => {
     });
   }
 
-  if(req.body.kodeBarcode) {
+  if (req.body.kodeBarcode) {
     stok = new Stok({
       kodeStok: `${req.body.kodeGroup}-${kodeStokCount}`,
       ...req.body,
@@ -180,7 +183,7 @@ export const saveStok = async (req, res) => {
   }
 };
 
-export const updateStok = async (req, res) => {
+const updateStok = async (req, res) => {
   try {
     const updatedStok = await Stok.findByIdAndUpdate(
       req.params.id,
@@ -202,7 +205,7 @@ export const updateStok = async (req, res) => {
   }
 };
 
-export const deleteStok = async (req, res) => {
+const deleteStok = async (req, res) => {
   try {
     const stok = await Stok.findById(req.params.id);
     for (let i = 0; i < stok.gambarId.length; i++) {
@@ -220,4 +223,17 @@ export const deleteStok = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getStoks,
+  getStokByKodeStok,
+  getStokForTable,
+  getStokMainInfo,
+  getStokForTransaction,
+  getStokById,
+  getKodeStokNextLength,
+  saveStok,
+  updateStok,
+  deleteStok,
 };

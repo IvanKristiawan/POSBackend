@@ -1,12 +1,17 @@
-import express from "express";
-import { getPembelianStoks, getPembelianStokById, savePembelianStok, updatePembelianStok, deletePembelianStok } from "../controllers/PembelianStokController.js";
+const express = require("express");
+const content = require("../controllers/PembelianStokController.js");
+const getPembelianStoks = content.getPembelianStoks;
+const getPembelianStokById = content.getPembelianStokById;
+const savePembelianStok = content.savePembelianStok;
+const updatePembelianStok = content.updatePembelianStok;
+const deletePembelianStok = content.deletePembelianStok;
 
 const router = express.Router();
 
-router.get('/pembelianStoks', getPembelianStoks);
-router.get('/pembelianStoks/:id', getPembelianStokById);
-router.post('/pembelianStoks', savePembelianStok);
-router.patch('/pembelianStoks/:id', updatePembelianStok);
-router.delete('/pembelianStoks/:id', deletePembelianStok);
+router.get("/pembelianStoks", getPembelianStoks);
+router.get("/pembelianStoks/:id", getPembelianStokById);
+router.post("/pembelianStoks", savePembelianStok);
+router.patch("/pembelianStoks/:id", updatePembelianStok);
+router.delete("/pembelianStoks/:id", deletePembelianStok);
 
-export default router;
+module.exports = router;

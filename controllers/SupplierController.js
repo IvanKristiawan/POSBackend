@@ -1,6 +1,6 @@
-import Supplier from "../models/SupplierModel.js";
+const Supplier = require("../models/SupplierModel.js");
 
-export const getSuppliers = async (req, res) => {
+const getSuppliers = async (req, res) => {
   try {
     const suppliers = await Supplier.find();
     res.json(suppliers);
@@ -10,13 +10,13 @@ export const getSuppliers = async (req, res) => {
   }
 };
 
-export const getSuppliersNextLength = async (req, res) => {
+const getSuppliersNextLength = async (req, res) => {
   try {
     const suppliers = await Supplier.find();
     const suppliersLength = suppliers.length;
     let kodeSupplierCount;
     let increment;
-  
+
     if (suppliersLength < 1) {
       kodeSupplierCount = (1).toLocaleString("en-US", {
         minimumIntegerDigits: 5,
@@ -37,7 +37,7 @@ export const getSuppliersNextLength = async (req, res) => {
   }
 };
 
-export const getSupplierForTable = async (req, res) => {
+const getSupplierForTable = async (req, res) => {
   try {
     const suppliers = await Supplier.find(
       {},
@@ -50,7 +50,7 @@ export const getSupplierForTable = async (req, res) => {
   }
 };
 
-export const getSupplierMainInfo = async (req, res) => {
+const getSupplierMainInfo = async (req, res) => {
   try {
     const suppliers = await Supplier.find(
       {},
@@ -63,7 +63,7 @@ export const getSupplierMainInfo = async (req, res) => {
   }
 };
 
-export const getSupplierById = async (req, res) => {
+const getSupplierById = async (req, res) => {
   try {
     const supplier = await Supplier.findById(req.params.id);
     res.json(supplier);
@@ -73,7 +73,7 @@ export const getSupplierById = async (req, res) => {
   }
 };
 
-export const saveSupplier = async (req, res) => {
+const saveSupplier = async (req, res) => {
   const suppliers = await Supplier.find();
   const suppliersLength = suppliers.length;
   let kodeSupplierCount;
@@ -106,7 +106,7 @@ export const saveSupplier = async (req, res) => {
   }
 };
 
-export const updateSupplier = async (req, res) => {
+const updateSupplier = async (req, res) => {
   try {
     const updatedSupplier = await Supplier.findByIdAndUpdate(
       req.params.id,
@@ -123,7 +123,7 @@ export const updateSupplier = async (req, res) => {
   }
 };
 
-export const deleteSupplier = async (req, res) => {
+const deleteSupplier = async (req, res) => {
   try {
     const deletedSupplier = await Supplier.deleteOne({ _id: req.params.id });
     // Status 200 = Successful
@@ -132,4 +132,15 @@ export const deleteSupplier = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getSuppliers,
+  getSuppliersNextLength,
+  getSupplierForTable,
+  getSupplierMainInfo,
+  getSupplierById,
+  saveSupplier,
+  updateSupplier,
+  deleteSupplier,
 };

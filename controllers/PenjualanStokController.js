@@ -1,6 +1,6 @@
-import PenjualanStok from "../models/PenjualanStokModel.js";
+const PenjualanStok = require("../models/PenjualanStokModel.js");
 
-export const getPenjualanStoks = async (req, res) => {
+const getPenjualanStoks = async (req, res) => {
   try {
     const penjualanStoks = await PenjualanStok.find();
     res.json(penjualanStoks);
@@ -10,7 +10,7 @@ export const getPenjualanStoks = async (req, res) => {
   }
 };
 
-export const getPenjualanStokForKlerekan = async (req, res) => {
+const getPenjualanStokForKlerekan = async (req, res) => {
   try {
     const penjualanStoks = await PenjualanStok.find({
       tanggal: req.body.tanggal,
@@ -23,7 +23,7 @@ export const getPenjualanStokForKlerekan = async (req, res) => {
   }
 };
 
-export const getPenjualanStoksCount = async (req, res) => {
+const getPenjualanStoksCount = async (req, res) => {
   try {
     const penjualanStoks = await PenjualanStok.find();
     const penjualanStoksLength = penjualanStoks.length;
@@ -50,7 +50,7 @@ export const getPenjualanStoksCount = async (req, res) => {
   }
 };
 
-export const getPenjualanStokById = async (req, res) => {
+const getPenjualanStokById = async (req, res) => {
   try {
     const penjualanStok = await PenjualanStok.findById(req.params.id);
     res.json(penjualanStok);
@@ -60,7 +60,7 @@ export const getPenjualanStokById = async (req, res) => {
   }
 };
 
-export const savePenjualanStok = async (req, res) => {
+const savePenjualanStok = async (req, res) => {
   const penjualanStok = new PenjualanStok(req.body);
   try {
     const insertedPenjualanStok = await penjualanStok.save();
@@ -72,7 +72,7 @@ export const savePenjualanStok = async (req, res) => {
   }
 };
 
-export const updatePenjualanStok = async (req, res) => {
+const updatePenjualanStok = async (req, res) => {
   try {
     const updatedPenjualanStok = await PenjualanStok.findByIdAndUpdate(
       req.params.id,
@@ -89,7 +89,7 @@ export const updatePenjualanStok = async (req, res) => {
   }
 };
 
-export const deletePenjualanStok = async (req, res) => {
+const deletePenjualanStok = async (req, res) => {
   try {
     const deletedPenjualanStok = await PenjualanStok.deleteOne({
       _id: req.params.id,
@@ -100,4 +100,14 @@ export const deletePenjualanStok = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getPenjualanStoks,
+  getPenjualanStokForKlerekan,
+  getPenjualanStoksCount,
+  getPenjualanStokById,
+  savePenjualanStok,
+  updatePenjualanStok,
+  deletePenjualanStok,
 };

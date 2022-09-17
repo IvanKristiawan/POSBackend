@@ -1,11 +1,12 @@
-import express from "express";
-import {
-  updateUser,
-  deleteUser,
-  getUser,
-  getUsers,
-} from "../controllers/UserController.js";
-import { verifyUser, verifyUserSPV } from "../utils/verifyToken.js";
+const express = require("express");
+const content = require("../controllers/UserController.js");
+const content2 = require("../utils/verifyToken.js");
+const updateUser = content.updateUser;
+const deleteUser = content.deleteUser;
+const getUser = content.getUser;
+const getUsers = content.getUsers;
+const verifyUser = content2.verifyUser;
+const verifyUserSPV = content2.verifyUserSPV;
 const router = express.Router();
 
 // UPDATE
@@ -17,4 +18,4 @@ router.post("/:id", verifyUser, getUser);
 // GET ALL
 router.post("/", verifyUserSPV, getUsers);
 
-export default router;
+module.exports = router;

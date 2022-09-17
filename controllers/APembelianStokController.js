@@ -1,6 +1,6 @@
-import APembelianStok from "../models/APembelianStokModel.js";
+const APembelianStok = require("../models/APembelianStokModel.js");
 
-export const getAPembelianStok = async (req, res) => {
+const getAPembelianStok = async (req, res) => {
   try {
     const aPembelianStoks = await APembelianStok.find();
     res.json(aPembelianStoks);
@@ -10,7 +10,7 @@ export const getAPembelianStok = async (req, res) => {
   }
 };
 
-export const getAPembelianStokById = async (req, res) => {
+const getAPembelianStokById = async (req, res) => {
   try {
     const aPembelianStok = await APembelianStok.findById(req.params.id);
     res.json(aPembelianStok);
@@ -20,7 +20,7 @@ export const getAPembelianStokById = async (req, res) => {
   }
 };
 
-export const saveAPembelianStok = async (req, res) => {
+const saveAPembelianStok = async (req, res) => {
   const aPembelianStok = new APembelianStok(req.body);
   try {
     const insertedAPembelianStok = await aPembelianStok.save();
@@ -32,7 +32,7 @@ export const saveAPembelianStok = async (req, res) => {
   }
 };
 
-export const updateAPembelianStok = async (req, res) => {
+const updateAPembelianStok = async (req, res) => {
   try {
     const updatedAPembelianStok = await APembelianStok.findByIdAndUpdate(
       req.params.id,
@@ -49,7 +49,7 @@ export const updateAPembelianStok = async (req, res) => {
   }
 };
 
-export const deleteAPembelianStok = async (req, res) => {
+const deleteAPembelianStok = async (req, res) => {
   try {
     const deletedAPembelianStok = await APembelianStok.deleteOne({
       _id: req.params.id,
@@ -60,4 +60,12 @@ export const deleteAPembelianStok = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getAPembelianStok,
+  getAPembelianStokById,
+  saveAPembelianStok,
+  updateAPembelianStok,
+  deleteAPembelianStok,
 };

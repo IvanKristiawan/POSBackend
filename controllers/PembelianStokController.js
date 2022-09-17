@@ -1,6 +1,6 @@
-import PembelianStok from "../models/PembelianStokModel.js";
+const PembelianStok = require("../models/PembelianStokModel.js");
 
-export const getPembelianStoks = async (req, res) => {
+const getPembelianStoks = async (req, res) => {
   try {
     const pembelianStoks = await PembelianStok.find();
     res.json(pembelianStoks);
@@ -10,7 +10,7 @@ export const getPembelianStoks = async (req, res) => {
   }
 };
 
-export const getPembelianStokById = async (req, res) => {
+const getPembelianStokById = async (req, res) => {
   try {
     const pembelianStok = await PembelianStok.findById(req.params.id);
     res.json(pembelianStok);
@@ -20,7 +20,7 @@ export const getPembelianStokById = async (req, res) => {
   }
 };
 
-export const savePembelianStok = async (req, res) => {
+const savePembelianStok = async (req, res) => {
   const pembelianStok = new PembelianStok(req.body);
   try {
     const insertedPembelianStok = await pembelianStok.save();
@@ -32,7 +32,7 @@ export const savePembelianStok = async (req, res) => {
   }
 };
 
-export const updatePembelianStok = async (req, res) => {
+const updatePembelianStok = async (req, res) => {
   try {
     const updatedPembelianStok = await PembelianStok.findByIdAndUpdate(
       req.params.id,
@@ -49,7 +49,7 @@ export const updatePembelianStok = async (req, res) => {
   }
 };
 
-export const deletePembelianStok = async (req, res) => {
+const deletePembelianStok = async (req, res) => {
   try {
     const deletedPembelianStok = await PembelianStok.deleteOne({
       _id: req.params.id,
@@ -60,4 +60,12 @@ export const deletePembelianStok = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getPembelianStoks,
+  getPembelianStokById,
+  savePembelianStok,
+  updatePembelianStok,
+  deletePembelianStok,
 };

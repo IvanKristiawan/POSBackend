@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const PenjualanStokSchema = new mongoose.Schema(
   {
@@ -13,4 +13,4 @@ const PenjualanStokSchema = new mongoose.Schema(
   { timestamps: {} }
 );
 
-export default mongoose.model("PenjualanStok", PenjualanStokSchema);
+module.exports = mongoose.model("PenjualanStok", PenjualanStokSchema);

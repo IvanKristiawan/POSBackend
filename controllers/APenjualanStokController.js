@@ -1,6 +1,6 @@
-import APenjualanStok from "../models/APenjualanStokModel.js";
+const APenjualanStok = require("../models/APenjualanStokModel.js");
 
-export const getAPenjualanStok = async (req, res) => {
+const getAPenjualanStok = async (req, res) => {
   try {
     const aPenjualanStoks = await APenjualanStok.find();
     res.json(aPenjualanStoks);
@@ -10,7 +10,7 @@ export const getAPenjualanStok = async (req, res) => {
   }
 };
 
-export const getAPenjualanStokById = async (req, res) => {
+const getAPenjualanStokById = async (req, res) => {
   try {
     const aPenjualanStok = await APenjualanStok.findById(req.params.id);
     res.json(aPenjualanStok);
@@ -20,7 +20,7 @@ export const getAPenjualanStokById = async (req, res) => {
   }
 };
 
-export const getAPenjualanStokByKodeStok = async (req, res) => {
+const getAPenjualanStokByKodeStok = async (req, res) => {
   try {
     const aPenjualanStok = await APenjualanStok.findOne({
       nomorNota: req.body.nomorNota,
@@ -33,7 +33,7 @@ export const getAPenjualanStokByKodeStok = async (req, res) => {
   }
 };
 
-export const getAPenjualanStokByNomorNota = async (req, res) => {
+const getAPenjualanStokByNomorNota = async (req, res) => {
   try {
     const aPenjualanStok = await APenjualanStok.find({
       nomorNota: req.params.nomorNota,
@@ -45,7 +45,7 @@ export const getAPenjualanStokByNomorNota = async (req, res) => {
   }
 };
 
-export const saveAPenjualanStok = async (req, res) => {
+const saveAPenjualanStok = async (req, res) => {
   const aPenjualanStok = new APenjualanStok(req.body);
   try {
     const insertedAPenjualanStok = await aPenjualanStok.save();
@@ -57,7 +57,7 @@ export const saveAPenjualanStok = async (req, res) => {
   }
 };
 
-export const updateAPenjualanStok = async (req, res) => {
+const updateAPenjualanStok = async (req, res) => {
   try {
     const updatedAPenjualanStok = await APenjualanStok.findByIdAndUpdate(
       req.params.id,
@@ -74,7 +74,7 @@ export const updateAPenjualanStok = async (req, res) => {
   }
 };
 
-export const deleteAPenjualanStok = async (req, res) => {
+const deleteAPenjualanStok = async (req, res) => {
   try {
     const deletedAPenjualanStok = await APenjualanStok.deleteOne({
       _id: req.params.id,
@@ -85,4 +85,14 @@ export const deleteAPenjualanStok = async (req, res) => {
     // Error 400 = Kesalahan dari sisi user
     res.status(400).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getAPenjualanStok,
+  getAPenjualanStokById,
+  getAPenjualanStokByKodeStok,
+  getAPenjualanStokByNomorNota,
+  saveAPenjualanStok,
+  updateAPenjualanStok,
+  deleteAPenjualanStok,
 };

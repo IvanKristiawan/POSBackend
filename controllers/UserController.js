@@ -1,7 +1,7 @@
-import User from "../models/UserModel.js";
-import bcrypt from "bcryptjs";
+const User = require("../models/UserModel.js");
+const bcrypt = require("bcryptjs");
 
-export const updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const findUser = await User.findById(req.params.id);
     const salt = bcrypt.genSaltSync(10);
@@ -29,7 +29,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
-export const deleteUser = async (req, res) => {
+const deleteUser = async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
     res.status(200).json("User has been deleted.");
@@ -39,7 +39,7 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-export const getUser = async (req, res) => {
+const getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     res.status(200).json(user);
@@ -49,7 +49,7 @@ export const getUser = async (req, res) => {
   }
 };
 
-export const getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);
@@ -57,4 +57,11 @@ export const getUsers = async (req, res) => {
     // Error 500 = Kesalahan di server
     res.status(500).json({ message: error.message });
   }
+};
+
+module.exports = {
+  updateUser,
+  deleteUser,
+  getUser,
+  getUsers,
 };
